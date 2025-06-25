@@ -19,6 +19,18 @@
         #lets:hover {
             transform: scale(1.1);
         }
+
+        .scrolling-wrapper {
+        scroll-behavior: smooth;
+        overflow-x: auto;
+        display: flex;
+        gap: 1rem;
+        padding-bottom: 0.5rem;
+        }
+
+        .scrolling-wrapper::-webkit-scrollbar {
+        display: none;
+        }
     </style>
 </head>
 <body>
@@ -54,10 +66,10 @@
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8" data-aos="fade-down" data-aos-once="true" data-aos-delay="1500">
             <div class="text-center">
                 <p
-                    class="max-w-4xl mx-auto mb-4 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight">
-                    <span style="color: #f01616; font-family: Hanalei Fill, system-ui;">Aether</span><span style="color: #5c6e91; font-family: Shizuru, system-ui;">Boy</span><span style="color: #ffc059; font-family: Acme, sans-serif;">Bookstore</span>
+                    class="max-w-4xl mx-auto mb-4 text-2xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight" style="font-family: Acme, sans-serif;"> Let's visit 
+                    <span style="color: #f01616; font-family: Hanalei Fill, system-ui;">Aether</span><span style="color: #ffc059; font-family: Hanalei Fill, system-ui;">Bookstore</span> and find your favorite book
                 </p>
-                <h1 class="typewrite max-w-2xl mx-auto px-6 text-xl font-bold text-gray-600" style="font-family: Playfair Display, serif;" data-period="2000" data-type='[ "Jelajahi dunia dan temukan buku favoritmu disini", "Dari misteri hingga kisah epik, toko buku kami adalah portal menuju pengetahuan tak terbatas", "Ada +100 E-Book menantimu", "Ayo kemari dan selami dunia penuh pengetahuan ini"]'>
+                <h1 class="typewrite max-w-2xl mx-auto px-6 text-xl text-gray-600" style="font-family: Arial, Helvetica, sans-serif;" data-period="2000" data-type='[ "Jelajahi dunia dan temukan buku favoritmu disini", "Dari misteri hingga kisah epik, toko buku kami adalah portal menuju pengetahuan tak terbatas", "Ada +100 E-Book menantimu", "Ayo kemari dan selami dunia penuh pengetahuan ini"]'>
                 </h1>
                 <div class="px-8 sm:items-start sm:justify-center sm:px-0 sm:space-x-5 sm:flex mt-9">
                     <a href="#rakBuku" id="lets"
@@ -71,19 +83,34 @@
                 </div>
             </div>
         </div>
-        <div class="bg-white" data-aos="zoom-in-down" data-aos-once="true" data-aos-delay="1500">
-            <div class="relative mx-auto mt-4 md:mt-8">
-                <div class="lg:max-w-4xl lg:mx-auto">
-                    <img src="itachi.gif" class="rounded-lg">
+        <!-- Hero Section -->
+        
+
+        <!-- Stats Section -->
+        <section class="bg-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-4">
+                        <div class="text-4xl font-bold text-primary mb-2">100+</div>
+                        <div class="text-gray-600">Total books</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl font-bold text-primary mb-2">4.8</div>
+                        <div class="text-gray-600">Customer Rating</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl font-bold text-primary mb-2">98%</div>
+                        <div class="text-gray-600">Customer satisfation</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl font-bold text-primary mb-2">24/7</div>
+                        <div class="text-gray-600">Customer Support</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="rakBuku" class="flex flex-wrap justify-center gap-3 mt-4 bg-white px-10" data-aos="fade-zoom-in"
-        data-aos-easing="ease-in-back"
-        data-aos-delay="300"
-        data-aos-duratio="1500">
-        <!-- Template kategori akan di-generate di JS -->
-        </div>
+        </section>
+        <!-- Kontainer Buku -->
+        <div id="rakBuku" class="space-y-12 sm:px-20 md:px-15 px-10"></div>
     </section>
 
     
@@ -92,7 +119,7 @@
         <div class="border-t border-slate-900/5 py-10">
             <div class="mx-auto h-auto w-auto text-slate-900 gap-4">
                 <p class="max-w-4xl mx-auto mb-4 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight lg:leading-tight text-center">
-                    <span style="color: #f01616; font-family: Hanalei Fill, system-ui;">Aether</span><span style="color: #5c6e91; font-family: Shizuru, system-ui;">Boy</span><span style="color: #ffc059; font-family: Acme, sans-serif;">Bookstore</span>
+                    <span style="color: #f01616; font-family: Hanalei Fill, system-ui;">Aether</span><span style="color: #ffc059; font-family: Hanalei Fill, system-ui;">Bookstore</span>
                 </p>
             </div>
             <p class="mt-5 text-center text-sm leading-6 text-slate-500">© BemuTzy. All rights reserved.</p>
@@ -161,58 +188,68 @@
         const container = document.getElementById("rakBuku");
         container.innerHTML = "";
 
-        categories.forEach(cat => {
+        categories.forEach((cat, index) => {
             const booksInCat = filteredBooks.filter(b => b.category === cat);
             if (booksInCat.length === 0) return;
 
             const section = document.createElement("div");
-            section.className = "mb-12";
-
             const heading = document.createElement("h2");
             heading.textContent = cat;
             heading.className = "text-2xl font-semibold mb-4 border-b border-red-300 pb-2";
             section.appendChild(heading);
 
-            const grid = document.createElement("div");
-            grid.className = "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6";
+            const scrollWrapper = document.createElement("div");
+            scrollWrapper.className = "scrolling-wrapper";
+            scrollWrapper.setAttribute("id", `scroll-${index}`);
 
             booksInCat.forEach(book => {
-            const card = document.createElement("div");
-            card.className = "bg-white rounded-xl overflow-hidden shadow hover:shadow-lg border border-red-100";
+            const card = document.createElement("a");
+            card.href = book.link;
+            card.target = "_blank";
+            card.className = `
+                w-40 h-64 sm:w-44 sm:h-72 md:w-48 md:h-80 
+                bg-white rounded-xl overflow-hidden shadow hover:shadow-lg 
+                border border-red-100 flex-shrink-0 flex flex-col justify-between transition-transform hover:scale-105
+            `;
 
             const img = document.createElement("img");
             img.src = book.cover;
             img.alt = book.title;
-            img.className = "w-full h-60 object-cover";
+            img.className = "w-full h-2/3 object-cover";
 
             const content = document.createElement("div");
-            content.className = "p-4";
+            content.className = "p-2 flex justify-center items-center h-1/3";
 
             const title = document.createElement("h3");
             title.textContent = book.title;
-            title.className = "text-lg font-bold text-red-800 mb-2";
-
-            const badge = document.createElement("span");
-
-            const button = document.createElement("a");
-            button.textContent = "Lihat Detail";
-            button.href = book.link;
-            button.target = "_blank";
-            button.className = "inline-block mt-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm";
+            title.className = "text-sm text-center font-semibold text-red-800";
 
             content.appendChild(title);
-            content.appendChild(badge);
-            content.appendChild(button);
-
             card.appendChild(img);
             card.appendChild(content);
-
-            grid.appendChild(card);
+            scrollWrapper.appendChild(card);
             });
 
-            section.appendChild(grid);
+            section.appendChild(scrollWrapper);
             container.appendChild(section);
+
+            // Jalankan scroll bolak-balik
+            startAutoScroll(scrollWrapper);
         });
+        }
+
+        // Fungsi scroll bolak-balik
+        function startAutoScroll(container) {
+        let direction = 1; // 1 = kanan, -1 = kiri
+        const speed = 1;   // piksel per interval
+        setInterval(() => {
+            container.scrollLeft += direction * speed;
+            if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+            direction = -1;
+            } else if (container.scrollLeft <= 0) {
+            direction = 1;
+            }
+        }, 20); // Semakin kecil = semakin halus
         }
 
         function filterBooks() {
@@ -223,7 +260,6 @@
         renderBooks(filtered);
         }
 
-        // Inisialisasi awal
         renderBooks(books);
     </script>
 
