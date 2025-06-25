@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether Boy Bookstore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="https://img.freepik.com/premium-photo/anime-male-avatar_950633-956.jpg?w=2000" type="image/x-icon">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Hanalei+Fill&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Shizuru&display=swap" rel="stylesheet">
+    <!-- framework -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        #lets:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header data-aos="fade-down" data-aos-once="true" data-aos-delay="1500"
+        class="fixed inset-x-0 top-0 z-30 mx-auto w-full h-auto max-w-screen-md bg-white/50 py-1 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:top-6 lg:rounded-3xl">
+        <div class="px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex shrink-0">
+                    <a aria-current="page" class="flex items-center" href="/">
+                        <img class="h-10 w-auto rounded-full" src="https://img.freepik.com/premium-photo/anime-male-avatar_950633-956.jpg?w=2000" alt="">
+                    </a>
+                </div>
+                <div class="flex items-center justify-end gap-3">
+                    <div class="relative w-full p-2">
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Cari E-Book"
+                            class="px-8 bg-gray/50 backdrop-blur-lg rounded-lg p-3 focus:outline-none"
+                            oninput="filterBooks()"
+                        />
+                        <span class="absolute top-1/2 left-3 -translate-y-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816a1 1 0 01-1.414-1.414L7.94 9.94a1 1 0 012 0l4.816 4.816a1 1 0 01-1.414 1.414l-4.816-4.816a1 1 0 01-1.414-1.414L2.83 8.7a1 1 0 01-2 0l4.817 4.817a1 1 0 01-1.414 1.414L2 14.17a1 1 0 01-2 0l4.816-4.816a6 6 0 010-8.95z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="bg-gray-50 pt-30">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8" data-aos="fade-down" data-aos-once="true" data-aos-delay="1500">
+            <div class="text-center">
+                <p
+                    class="max-w-4xl mx-auto mb-4 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight">
+                    <span style="color: #f01616; font-family: Hanalei Fill, system-ui;">Aether</span><span style="color: #5c6e91; font-family: Shizuru, system-ui;">Boy</span><span style="color: #ffc059; font-family: Acme, sans-serif;">Bookstore</span>
+                </p>
+                <h1 class="typewrite max-w-2xl mx-auto px-6 text-xl font-bold text-gray-600" style="font-family: Playfair Display, serif;" data-period="2000" data-type='[ "Jelajahi dunia dan temukan buku favoritmu disini", "Dari misteri hingga kisah epik, toko buku kami adalah portal menuju pengetahuan tak terbatas", "Ada +100 E-Book menantimu", "Ayo kemari dan selami dunia penuh pengetahuan ini"]'>
+                </h1>
+                <div class="px-8 sm:items-start sm:justify-center sm:px-0 sm:space-x-5 sm:flex mt-9">
+                    <a href="#rakBuku" id="lets"
+                        class="mb-3 sm:mb-0 inline-flex items-center justify-center w-full px-8 py-3 text-lg font-bold text-white transition-all duration-200 bg-red-900 border-2 border-transparent sm:w-auto rounded-xl hover:bg-red-600 focus:outline-none focus:ring-red-900"
+                        role="button">
+                        Let's Choose
+                    </a>
+                    <a href="https://lynk.id/_benu.rjb" id="lets"
+                        class="inline-flex items-center justify-center w-full px-8 py-3 text-lg font-bold text-red-900 hover:text-red-900 transition-all duration-200 bg-white border-2 border-red-900 sm:w-auto rounded-xl hover:bg-white focus:outline-none  focus:ring-red-900"
+                        role="button">Open LYNK.ID</a>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white" data-aos="zoom-in-down" data-aos-once="true" data-aos-delay="1500">
+            <div class="relative mx-auto mt-4 md:mt-8">
+                <div class="lg:max-w-4xl lg:mx-auto">
+                    <img src="itachi.gif" class="rounded-lg">
+                </div>
+            </div>
+        </div>
+        <div id="rakBuku" class="flex flex-wrap justify-center gap-3 mt-4 bg-white px-10" data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-duratio="1500">
+        <!-- Template kategori akan di-generate di JS -->
+        </div>
+    </section>
+
+    
+
+    <footer class="mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8">
+        <div class="border-t border-slate-900/5 py-10">
+            <div class="mx-auto h-auto w-auto text-slate-900 gap-4">
+                <p class="max-w-4xl mx-auto mb-4 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight lg:leading-tight text-center">
+                    <span style="color: #f01616; font-family: Hanalei Fill, system-ui;">Aether</span><span style="color: #5c6e91; font-family: Shizuru, system-ui;">Boy</span><span style="color: #ffc059; font-family: Acme, sans-serif;">Bookstore</span>
+                </p>
+            </div>
+            <p class="mt-5 text-center text-sm leading-6 text-slate-500">© BemuTzy. All rights reserved.</p>
+            <div class="mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700"><a
+                    href="/privacy-policy">Privacy policy</a>
+                <div class="h-4 w-px bg-slate-500/20"></div><a href="/changelog">Changelog</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const books = [
+        {
+            title: "The Peasant Question in France and Germany",
+            category: "Engels",
+            cover: "https://m.media-amazon.com/images/I/71vV35jlmyL._SL1500_.jpg",
+            link: "https://lynk.id/_benu.rjb/vje1ozp3z9zv"
+        },
+        {
+            title: "Anti-Dühring",
+            category: "Engels",
+            cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1502476690i/187062.jpg",
+            link: "https://lynk.id/_benu.rjb/ldpmgedywqqv"
+        },
+        {
+            title: "Socialism: Utopian and Scientific",
+            category: "Engels",
+            cover: "https://m.media-amazon.com/images/I/51VoWc25xVL._SY445_SX342_.jpg",
+            link: "https://lynk.id/_benu.rjb/vq1vgr0d3z1o"
+        },
+        {
+            title: "Synopsis of Capital",
+            category: "Engels",
+            cover: "https://image.aladin.co.kr/product/7477/98/cover500/1522883304_2.jpg",
+            link: "https://lynk.id/_benu.rjb/ge8y92o2m8o2"
+        },
+        {
+            title: "The Death of Karl Marx",
+            category: "Engels",
+            cover: "https://cpcml.ca/wp/wp-content/uploads/2023/03/AnniversaryofKarlMarxDeath-1600.jpg",
+            link: "https://lynk.id/_benu.rjb/d0mjygp5x3gm"
+        },
+        {
+            title: "The Origin of the Family, Private Property and the State",
+            category: "Engels",
+            cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1658682961i/61679066.jpg",
+            link: "https://lynk.id/_benu.rjb/9r8e6p6kjyzl"
+        },
+        {
+            title: "Dialectics of Nature (Part)",
+            category: "Engels",
+            cover: "https://m.media-amazon.com/images/I/71SOcW9vfqL._SL1500_.jpg",
+            link: "https://lynk.id/_benu.rjb/l3ng8q7ll03k"
+        },
+        {
+            title: "Condition of the Working Class in England",
+            category: "Engels",
+            cover: "https://pictures.abebooks.com/ACANTHOPHYLLUM/md/md30570675368.jpg",
+            link: "https://lynk.id/_benu.rjb/od1l5vqw8xdn"
+        }
+        ];
+
+        const categories = ["Engels", "Politik", "Sejarah", "Teknologi"];
+
+        function renderBooks(filteredBooks) {
+        const container = document.getElementById("rakBuku");
+        container.innerHTML = "";
+
+        categories.forEach(cat => {
+            const booksInCat = filteredBooks.filter(b => b.category === cat);
+            if (booksInCat.length === 0) return;
+
+            const section = document.createElement("div");
+            section.className = "mb-12";
+
+            const heading = document.createElement("h2");
+            heading.textContent = cat;
+            heading.className = "text-2xl font-semibold mb-4 border-b border-red-300 pb-2";
+            section.appendChild(heading);
+
+            const grid = document.createElement("div");
+            grid.className = "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6";
+
+            booksInCat.forEach(book => {
+            const card = document.createElement("div");
+            card.className = "bg-white rounded-xl overflow-hidden shadow hover:shadow-lg border border-red-100";
+
+            const img = document.createElement("img");
+            img.src = book.cover;
+            img.alt = book.title;
+            img.className = "w-full h-60 object-cover";
+
+            const content = document.createElement("div");
+            content.className = "p-4";
+
+            const title = document.createElement("h3");
+            title.textContent = book.title;
+            title.className = "text-lg font-bold text-red-800 mb-2";
+
+            const badge = document.createElement("span");
+
+            const button = document.createElement("a");
+            button.textContent = "Lihat Detail";
+            button.href = book.link;
+            button.target = "_blank";
+            button.className = "inline-block mt-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm";
+
+            content.appendChild(title);
+            content.appendChild(badge);
+            content.appendChild(button);
+
+            card.appendChild(img);
+            card.appendChild(content);
+
+            grid.appendChild(card);
+            });
+
+            section.appendChild(grid);
+            container.appendChild(section);
+        });
+        }
+
+        function filterBooks() {
+        const query = document.getElementById("searchInput").value.toLowerCase();
+        const filtered = books.filter(book =>
+            book.title.toLowerCase().includes(query)
+        );
+        renderBooks(filtered);
+        }
+
+        // Inisialisasi awal
+        renderBooks(books);
+    </script>
+
+    <!-- animasi menghapus dan mengetik -->
+    <script>
+        var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
+    
+</body>
+</html>
