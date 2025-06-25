@@ -19,13 +19,18 @@
         #lets:hover {
             transform: scale(1.1);
         }
-
+        
+        /* animasi scroll card */
         .scrolling-wrapper {
         scroll-behavior: smooth;
         overflow-x: auto;
         display: flex;
         gap: 1rem;
         padding-bottom: 0.5rem;
+
+        /* ✅ Scroll lancar di mobile */
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
         }
 
         .scrolling-wrapper::-webkit-scrollbar {
@@ -110,7 +115,7 @@
             </div>
         </section>
         <!-- Kontainer Buku -->
-        <div id="rakBuku" class="space-y-12 sm:px-20 md:px-15 px-10"></div>
+        <div id="rakBuku" class="space-y-12 sm:px-20 md:px-7 px-5"></div>
     </section>
 
     
@@ -193,13 +198,16 @@
             if (booksInCat.length === 0) return;
 
             const section = document.createElement("div");
+
+            // Heading kategori
             const heading = document.createElement("h2");
             heading.textContent = cat;
             heading.className = "text-2xl font-semibold mb-4 border-b border-red-300 pb-2";
             section.appendChild(heading);
 
+            // Wrapper scroll horizontal
             const scrollWrapper = document.createElement("div");
-            scrollWrapper.className = "scrolling-wrapper";
+            scrollWrapper.className = "scrolling-wrapper cursor-grab";
             scrollWrapper.setAttribute("id", `scroll-${index}`);
 
             booksInCat.forEach(book => {
@@ -233,23 +241,32 @@
             section.appendChild(scrollWrapper);
             container.appendChild(section);
 
-            // Jalankan scroll bolak-balik
+            // Scroll bolak-balik
             startAutoScroll(scrollWrapper);
         });
         }
 
         // Fungsi scroll bolak-balik
         function startAutoScroll(container) {
-        let direction = 1; // 1 = kanan, -1 = kiri
-        const speed = 1;   // piksel per interval
+        let direction = 1;
+        const speed = 1;
+        let isTouching = false;
+
+        container.addEventListener("touchstart", () => isTouching = true);
+        container.addEventListener("touchend", () => isTouching = false);
+        container.addEventListener("mouseenter", () => isTouching = true);
+        container.addEventListener("mouseleave", () => isTouching = false);
+
         setInterval(() => {
+            if (!isTouching) {
             container.scrollLeft += direction * speed;
             if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
-            direction = -1;
+                direction = -1;
             } else if (container.scrollLeft <= 0) {
-            direction = 1;
+                direction = 1;
             }
-        }, 20); // Semakin kecil = semakin halus
+            }
+        }, 20);
         }
 
         function filterBooks() {
@@ -263,7 +280,7 @@
         renderBooks(books);
     </script>
 
-    <!-- animasi menghapus dan mengetik -->
+    // <!-- animasi menghapus dan mengetik -->
     <script>
         var TxtType = function(el, toRotate, period) {
         this.toRotate = toRotate;
