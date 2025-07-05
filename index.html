@@ -36,10 +36,67 @@
         .scrolling-wrapper::-webkit-scrollbar {
         display: none;
         }
+
+        #parallax {
+            background-image: url('parallax.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .testimonial-card {
+            width: 16rem;
+            padding: 1rem;
+            background-color: white;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            transform: rotate(2deg);
+            transition: transform 0.3s ease, z-index 0.2s ease;
+            z-index: 1;
+        }
+
+        .testimonial-card:hover {
+            cursor: pointer;
+            transform: scale(1.05) rotate(0deg);
+        }
+
+        @media (max-width: 768px) {
+        .testimonial-card {
+            transform: none !important;
+            width: 100%;
+            left: 0 !important;
+            right: 0 !important;
+            margin: auto;
+            position: absolute;
+            }
+        }
+
+        @keyframes gradientChange {
+            0% {
+                background-position: 0%
+            }
+
+            50% {
+                background-position: 100%
+            }
+
+            100% {
+                background-position: 0%
+            }
+        }
+
+        .gradient {
+            background: linear-gradient(90deg, blue, red);
+            background-size: 200% 200%;
+        }
+
+        .element-to-rotate {
+            animation: gradientChange 4s ease infinite;
+        }
     </style>
 </head>
 <body>
-    <header data-aos="fade-down" data-aos-once="true" data-aos-delay="1500"
+    <header data-aos="fade-down" data-aos-once="true" data-aos-delay="1500" data-aos-duration="3000"
         class="fixed inset-x-0 top-0 z-30 mx-auto w-full h-auto max-w-screen-md bg-white/50 py-1 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:top-6 lg:rounded-3xl">
         <div class="px-4">
             <div class="flex items-center justify-between">
@@ -68,7 +125,7 @@
         </div>
     </header>
     <section class="bg-gray-50 pt-30">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8" data-aos="fade-down" data-aos-once="true" data-aos-delay="1500">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8" data-aos="fade-down" data-aos-once="true" data-aos-delay="1500" data-aos-duration="3000">
             <div class="text-center">
                 <p
                     class="max-w-4xl mx-auto mb-4 text-2xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight" style="font-family: Acme, sans-serif;"> Let's visit 
@@ -89,11 +146,11 @@
             </div>
         </div>
         <!-- Hero Section -->
-        
+    </section>    
 
         <!-- Stats Section -->
         <section class="bg-white py-12">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-4" data-aos="fade-up" data-aos-once="true" data-aos-delay="1500" data-aos-duration="3000">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     <div class="p-4">
                         <div class="text-4xl font-bold text-primary mb-2">100+</div>
@@ -114,11 +171,88 @@
                 </div>
             </div>
         </section>
-        <!-- Kontainer Buku -->
-        <div id="rakBuku" class="space-y-12 sm:px-20 md:px-7 px-5"></div>
-    </section>
 
-    
+        <!-- Kontainer Buku -->
+        <div id="rakBuku" class="space-y-12 sm:px-20 md:px-7 px-5" data-aos="fade-up" data-aos-once="true" data-aos-delay="1500" data-aos-duration="3000"></div>
+
+        <div class="py-24 px-8 max-w-5xl mx-auto flex flex-col md:flex-row gap-12">
+            <div class="flex flex-col text-left basis-1/2">
+                <p class="text-4xl text-3xl font-extrabold text-base-content">📖 Informasi <br><span class="text-6xl">Tambahan</span></p>
+            </div>
+            <ul class="basis-1/2">
+                <li>
+                    <button class="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10" aria-expanded="false" onclick="toggleFAQ(this)">
+                        <span class="flex-1 text-base-content">🗂️ Tentang Kategori Buku</span>
+                        <svg class="flex-shrink-0 w-4 h-4 ml-auto fill-current" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out false"></rect>
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out false"></rect>
+                        </svg>
+                    </button>
+                    <div class="transition-all duration-300 ease-in-out max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
+                        <div class="pb-5 leading-relaxed">
+                            <div class="space-y-2 leading-relaxed">
+                                <p><strong>Filsafat:</strong> Buku yang membahas pemikiran, etika, dan logika manusia.</p>
+                                <p><strong>Politik:</strong> Buku tentang kekuasaan, ideologi, dan dinamika sosial.</p>
+                                <p><strong>Sejarah:</strong> Buku dokumentasi peristiwa dan tokoh masa lalu.</p>
+                                <p><strong>Teknologi:</strong> Buku tentang inovasi, sains, dan masa depan digital.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <button class="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10" aria-expanded="false" onclick="toggleFAQ(this)">
+                        <span class="flex-1 text-base-content">❓ Pertanyaan Umum (FAQ)</span>
+                        <svg class="flex-shrink-0 w-4 h-4 ml-auto fill-current" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out false"></rect>
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out false"></rect>
+                        </svg>
+                    </button>
+                    <div class="transition-all duration-300 ease-in-out max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
+                        <div class="pb-5 leading-relaxed">
+                            <div class="space-y-2 leading-relaxed">
+                                <p><strong>Apakah eBook ini gratis?</strong><br>Beberapa gratis, beberapa berbayar tergantung lisensi.</p>
+                                <p><strong>Bagaimana cara mengunduhnya?</strong><br>Klik pada card eBook, kamu akan diarahkan ke halaman download/detail.</p>
+                                <p><strong>Apakah ada versi cetak?</strong><br>Saat ini belum tersedia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <button class="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10" aria-expanded="false" onclick="toggleFAQ(this)">
+                        <span class="flex-1 text-base-content">💬 Kutipan Buku Unggulan</span>
+                        <svg class="flex-shrink-0 w-4 h-4 ml-auto fill-current" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out false"></rect>
+                            <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out false"></rect>
+                        </svg>
+                    </button>
+                    <div class="transition-all duration-300 ease-in-out max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
+                        <div class="pb-5 leading-relaxed">
+                            <div class="space-y-2 leading-relaxed">
+                                <p>"Kebebasan adalah pengakuan atas kebutuhan." – Karl Marx</p>
+                                <p>"Mereka yang tidak belajar dari sejarah akan mengulanginya." – George Santayana</p>
+                                <p>"Teknologi adalah perpanjangan dari tubuh manusia." – Marshall McLuhan</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    <section class="relative mt-20 px-4 py-10 bg-gray-100 overflow-hidden" id="parallax">
+        <h2 class="text-2xl font-bold text-center text-white mb-8" style="font-family: Acme, sans-serif;">Apa Kata Mereka?</h2>
+        <div class="relative w-full h-[300px]" id="testimoni-container">
+            <div onclick="bringToFront(this)" class="testimonial-card absolute top-0 left-1/4 rotate-1">"Website ini cocok untuk mahasiswa yang cari referensi!" – AI</div>
+            <div onclick="bringToFront(this)" class="testimonial-card absolute top-20 right-1/4 -rotate-3">"Desainnya clean dan enak dibaca. Keren!" – AI</div>
+            <div onclick="bringToFront(this)" class="testimonial-card absolute top-40 left-10 rotate-2">"Saya suka pilihan buku filsafatnya." – AI</div>
+            <div onclick="bringToFront(this)" class="testimonial-card absolute bottom-0 right-10 -rotate-2">"Mudah dinavigasi dan tampilannya unik." – AI</div>
+            <div onclick="bringToFront(this)" class="testimonial-card absolute top-10 right-0 rotate-1">"Favoritku untuk cari ebook sejarah!" – AI</div>
+            <div onclick="bringToFront(this)" class="testimonial-card absolute bottom-12 left-1/3 -rotate-4">"Aksesnya ringan bahkan di HP kentang." – AI</div>
+            <div onclick="bringToFront(this)" class="testimonial-card absolute top-28 left-1/5 rotate-6">"Warna merah putihnya khas dan nasionalis!" – AI</div>
+            <div onclick="bringToFront(this)" class="testimonial-card absolute bottom-32 right-1/3 rotate-2">"Navigasi dan raknya mantap!" – AI</div>
+            <div onclick="bringToFront(this)" class="testimonial-card absolute top-52 left-[45%] -rotate-5">"Saya suka UI-nya, beda dari web lain." – AI</div>
+            <div onclick="bringToFront(this)" class="testimonial-card absolute bottom-10 left-5 rotate-3">"Tampilan mobile-nya udah enak banget." – AI</div>
+        </div>
+    </section>
 
     <footer class="mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8">
         <div class="border-t border-slate-900/5 py-10">
@@ -211,50 +345,271 @@
             link: "#", 
             cover: "https://m.media-amazon.com/images/I/51v3St02F+L.jpg" 
         },
-            { title: "Capitalist Patriarchy", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/41fePkSLBJL._SY445_SX342_.jpg" },
-            { title: "Sejauh Mana Komitmen Negara", category: "E-Books Club", link: "#", cover: "https://tse1.mm.bing.net/th?id=OIP.JCPV9LYzvMnJEdsl9FMEswHaLH&pid=Api&P=0&h=220" },
-            { title: "Contemporary French", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/71cw0-n-mxL._SL1500_.jpg" },
-            { title: "Encyclopedia of Feminist Literature", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/51kcBrCSMSL.jpg" },
-            { title: "Women and Islamic Cultures", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/41nyhFomrlL._SY445_SX342_.jpg" },
-            { title: "Essays on Equality, Law and Education", category: "E-Books Club", link: "#", cover: "https://i.ebayimg.com/images/g/nVgAAOSwmwNjQU2a/s-l500.jpg" },
-            { title: "Feminism Pocket Essential series", category: "E-Books Club", link: "#", cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1328697015i/10669403.jpg" },
-            { title: "Feminism Political Economy", category: "E-Books Club", link: "#", cover: "https://cup-us.imgix.net/covers/9781788212649.jpg?auto=format&w=350" },
-            { title: "Feminism and History", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/71zejlk4x4L._SY522_.jpg" },
-            { title: "Feminism and Masculinities", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/71Y7E9kwq9L._SL1500_.jpg" },
-            { title: "Feminism and Modern Philosophy", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/418PmcXpTBL._SL500_.jpg" },
-            { title: "Feminism As Critique", category: "E-Books Club", link: "#", cover: "https://i.ebayimg.com/images/g/7XkAAOSwN6hf~cP4/s-l500.jpg" },
-            { title: "Feminism Beyond Modernism", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/31lqBn2QaFL._SY445_SX342_.jpg" },
-            { title: "Feminism Postmodernism Development", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/51g2SWV9I6L._SY445_SX342_.jpg" },
-            { title: "Feminist Political Theory", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/81h0ZVyeflL._SL1500_.jpg" },
-            { title: "Feminist Politics and Human Nature", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/41V185j8ZqL._SY445_SX342_.jpg" },
-            { title: "Feminist Studies", category: "E-Books Club", link: "#", cover: "https://i.ebayimg.com/images/g/6scAAOSwW-FkUYF1/s-l500.jpg" },
-            { title: "Feminist Theory and Literary Practice", category: "E-Books Club", link: "#", cover: "http://prodimage.images-bn.com/pimages/9780745316017_p0_v2_s1200x630.jpg" },
-            { title: "Feminist Thought", category: "E-Books Club", link: "#", cover: "https://images.routledge.com/common/jackets/crclarge/978036786/9780367861094.jpg" },
-            { title: "Further Adventures of the Dialectic of Sex", category: "E-Books Club", link: "#", cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1315682622i/8357052.jpg" },
-            { title: "Gender and Everyday Life", category: "E-Books Club", link: "#", cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348008916i/6070716.jpg" },
-            { title: "Gender Perspectives on Reproduction and Sexuality", category: "E-Books Club", link: "#", cover: "https://pictures.abebooks.com/isbn/9780762310883-us.jpg" },
-            { title: "Gender Trouble", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/71JDHGl742L._SL1500_.jpg" },
-            { title: "Intersections Between Feminist and Queer Theory", category: "E-Books Club", link: "#", cover: "https://cf.shopee.co.id/file/9478f6a66f0dc1917de5de05d21aee20" },
-            { title: "Introducing Postfeminism", category: "E-Books Club", link: "#", cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1387747703i/431976.jpg" },
-            { title: "Introduction to Sociology", category: "E-Books Club", link: "#", cover: "https://i5.walmartimages.com/seo/An-Introduction-to-Sociology-Feminist-Perspectives-Third-Edition-Pamela-Abbott-Claire-Wallace-and-Melissa-Tyler_ccc6b2d8-f137-4185-9447-87baab7ccb20.64257d8e72959db46a7feec6e36d1d39.jpeg" },
-            { title: "Just Methods An Interdisciplinary Feminist Reader", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/41AuuXBZHaL.jpg" },
-            { title: "Feminist Theory and Research", category: "E-Books Club", link: "#", cover: "https://i5.walmartimages.com/asr/808ac657-f9b2-486b-bdc4-38241ae1a7d3_1.44da811b4d570fc0fcb7e57ad1405945.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff" },
-            { title: "Reproductive Health Indicators", category: "E-Books Club", link: "#", cover: "https://cdn-2.zlibrary.to/media/content/thumbnails/7b0b07cc-09c9-40f9-ad49-d82524ded59e.webp" },
-            { title: "Sex Differences in Labor Markets", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/311FUJZq-DL._SY445_SX342_.jpg" },
-            { title: "Sexual Politics", category: "E-Books Club", link: "#", cover: "https://pictures.abebooks.com/isbn/9781135411657-es.jpg" },
-            { title: "Socialism Feminism and Philosophy", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/515JP-8foQL._SY445_SX342_.jpg" },
-            { title: "The Dialectic of Sex", category: "E-Books Club", link: "#", cover: "https://0.academia-photos.com/attachment_thumbnails/60765820/mini_magick20191001-15337-bkd30n.png?1569992703" },
-            { title: "The Feminine Mystique", category: "E-Books Club", link: "#", cover: "https://i.pinimg.com/originals/fe/16/21/fe16213ca3f923858d4f70cf76e23488.jpg" },
-            { title: "Feminism and Postfeminism", category: "E-Books Club", link: "#", cover: "http://images.tandf.co.uk/common/jackets/crclarge/978041524/9780415243100.jpg" },
-            { title: "The Subjection Of Women", category: "E-Books Club", link: "#", cover: "http://images.tandf.co.uk/common/jackets/crclarge/978076580/9780765807663.jpg" },
-            { title: "The Voice of Harriet Taylor Mill", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/71etLcDhvmL._SL1500_.jpg" },
-            { title: "Theoretical Perspectives on Gender and Development", category: "E-Books Club", link: "#", cover: "https://images-na.ssl-images-amazon.com/images/I/41RKC7F3MHL._SY291_BO1,204,203,200_QL40_ML2_.jpg" },
-            { title: "Theorizing Feminism", category: "E-Books Club", link: "#", cover: "https://images.routledge.com/common/jackets/crclarge/978081336/9780813367880.jpg" },
-            { title: "Theorizing Patriarchy", category: "E-Books Club", link: "#", cover: "https://covers.openlibrary.org/b/id/8477679-L.jpg" },
-            { title: "Thinking Through", category: "E-Books Club", link: "#", cover: "https://m.media-amazon.com/images/I/614zdg11D1L._SL1500_.jpg" },
-            { title: "Virginia Woolf", category: "E-Books Club", link: "#", cover: "https://i5.walmartimages.com/seo/Virginia-Woolf-Feminism-and-the-Reader-Hardcover-9781403969651_0c907d1b-ba6d-445e-b3fc-8cb4533a3504_1.09231ec5531df8d2f01fa277f26d7ca0.jpeg" },
-            { title: "Women Islam and Modernity", category: "E-Books Club", link: "#", cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348997893i/635086.jpg" },
-            { title: "Working with Men", category: "E-Books Club", link: "#", cover: "https://i.ebayimg.com/images/g/V-sAAOSw8zNepmyp/s-l960.jpg" },
+        { 
+            title: "Capitalist Patriarchy",
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/41fePkSLBJL._SY445_SX342_.jpg" 
+        },
+        { 
+            title: "Sejauh Mana Komitmen Negara", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://slideplayer.info/slide/2770033/10/images/2/PENTINGNYA+KOMITMEN.jpg" 
+        },
+        { 
+            title: "Contemporary French", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/71cw0-n-mxL._SL1500_.jpg" 
+        },
+        { 
+            title: "Encyclopedia of Feminist Literature", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/51kcBrCSMSL.jpg" 
+        },
+            
+        { 
+            title: "Women and Islamic Cultures", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/41nyhFomrlL._SY445_SX342_.jpg" 
+        },
+        { 
+            title: "Essays on Equality, Law and Education", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://i.ebayimg.com/images/g/nVgAAOSwmwNjQU2a/s-l500.jpg" 
+        },
+        { 
+            title: "Feminism Pocket Essential series", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1328697015i/10669403.jpg" 
+        },
+        { 
+            title: "Feminism Political Economy", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://cup-us.imgix.net/covers/9781788212649.jpg?auto=format&w=350" 
+        },
+        { 
+            title: "Feminism and History", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/71zejlk4x4L._SY522_.jpg" 
+        },
+        { 
+            title: "Feminism and Masculinities", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/71Y7E9kwq9L._SL1500_.jpg" 
+        },
+        { 
+            title: "Feminism and Modern Philosophy", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/418PmcXpTBL._SL500_.jpg" 
+        },
+        { 
+            title: "Feminism As Critique", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://i.ebayimg.com/images/g/7XkAAOSwN6hf~cP4/s-l500.jpg" 
+        },
+        { 
+            title: "Feminism Beyond Modernism", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/31lqBn2QaFL._SY445_SX342_.jpg" 
+        },
+        { 
+            title: "Feminism Postmodernism Development", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/51g2SWV9I6L._SY445_SX342_.jpg" 
+        },
+        { 
+            title: "Feminist Political Theory", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/81h0ZVyeflL._SL1500_.jpg" 
+        },
+        { 
+            title: "Feminist Politics and Human Nature", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/41V185j8ZqL._SY445_SX342_.jpg" 
+        },
+        { 
+            title: "Feminist Studies", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://i.ebayimg.com/images/g/6scAAOSwW-FkUYF1/s-l500.jpg" 
+        },
+        { 
+            title: "Feminist Theory and Literary Practice", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "http://prodimage.images-bn.com/pimages/9780745316017_p0_v2_s1200x630.jpg" 
+        },
+        { 
+            title: "Feminist Thought", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://images.routledge.com/common/jackets/crclarge/978036786/9780367861094.jpg" 
+        },
+        { 
+            title: "Further Adventures of the Dialectic of Sex", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1315682622i/8357052.jpg" 
+        },
+        { 
+            title: "Gender and Everyday Life", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348008916i/6070716.jpg" 
+        },
+        { 
+            title: "Gender Perspectives on Reproduction and Sexuality", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://pictures.abebooks.com/isbn/9780762310883-us.jpg" 
+        },
+        {
+            title: "Gender Trouble", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/71JDHGl742L._SL1500_.jpg" 
+        },
+        {
+            title: "Intersections Between Feminist and Queer Theory", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://cf.shopee.co.id/file/9478f6a66f0dc1917de5de05d21aee20" 
+        },
+        {
+            title: "Introducing Postfeminism", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1387747703i/431976.jpg" 
+        },
+        {
+            title: "Introduction to Sociology", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://i5.walmartimages.com/seo/An-Introduction-to-Sociology-Feminist-Perspectives-Third-Edition-Pamela-Abbott-Claire-Wallace-and-Melissa-Tyler_ccc6b2d8-f137-4185-9447-87baab7ccb20.64257d8e72959db46a7feec6e36d1d39.jpeg" 
+        },
+        {
+            title: "Just Methods An Interdisciplinary Feminist Reader", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/41AuuXBZHaL.jpg" 
+        },
+        {
+            title: "Feminist Theory and Research", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://i5.walmartimages.com/asr/808ac657-f9b2-486b-bdc4-38241ae1a7d3_1.44da811b4d570fc0fcb7e57ad1405945.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff" 
+        },
+        {
+            title: "Reproductive Health Indicators", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://cdn-2.zlibrary.to/media/content/thumbnails/7b0b07cc-09c9-40f9-ad49-d82524ded59e.webp" 
+        },
+        {
+            title: "Sex Differences in Labor Markets", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/311FUJZq-DL._SY445_SX342_.jpg" 
+        },
+        {
+            title: "Sexual Politics", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://pictures.abebooks.com/isbn/9781135411657-es.jpg" 
+        },
+        {
+            title: "Socialism Feminism and Philosophy", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/515JP-8foQL._SY445_SX342_.jpg" 
+        },
+        {
+            title: "The Dialectic of Sex", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://0.academia-photos.com/attachment_thumbnails/60765820/mini_magick20191001-15337-bkd30n.png?1569992703" 
+        },
+        {
+            title: "The Feminine Mystique", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://i.pinimg.com/originals/fe/16/21/fe16213ca3f923858d4f70cf76e23488.jpg" 
+        },
+        {
+            title: "Feminism and Postfeminism", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "http://images.tandf.co.uk/common/jackets/crclarge/978041524/9780415243100.jpg" 
+        },
+        {
+            title: "The Subjection Of Women", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "http://images.tandf.co.uk/common/jackets/crclarge/978076580/9780765807663.jpg" 
+        },
+        {
+            title: "The Voice of Harriet Taylor Mill", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/71etLcDhvmL._SL1500_.jpg" 
+        },
+        {
+            title: "Theoretical Perspectives on Gender and Development", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://images-na.ssl-images-amazon.com/images/I/41RKC7F3MHL._SY291_BO1,204,203,200_QL40_ML2_.jpg" 
+        },
+        {
+            title: "Theorizing Feminism", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://images.routledge.com/common/jackets/crclarge/978081336/9780813367880.jpg" 
+        },
+        {
+            title: "Theorizing Patriarchy", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://covers.openlibrary.org/b/id/8477679-L.jpg" 
+        },
+        {
+            title: "Thinking Through", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/614zdg11D1L._SL1500_.jpg" 
+        },
+        {
+            title: "Virginia Woolf", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://i5.walmartimages.com/seo/Virginia-Woolf-Feminism-and-the-Reader-Hardcover-9781403969651_0c907d1b-ba6d-445e-b3fc-8cb4533a3504_1.09231ec5531df8d2f01fa277f26d7ca0.jpeg" 
+        },
+        {
+            title: "Women Islam and Modernity", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348997893i/635086.jpg" 
+        },
+        {
+            title: "Working with Men", 
+            category: "E-Books Club", 
+            link: "#", 
+            cover: "https://i.ebayimg.com/images/g/V-sAAOSw8zNepmyp/s-l960.jpg" 
+        },
         // marx articles
         {
             title: "German French Yearbooks", 
@@ -304,29 +659,144 @@
             link: "#", 
             cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1697061456i/199434689.jpg" 
         },
-            { title: "Critique of Hegels Philosophy of Right", category: "Marx Articles", link: "#", cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1347675058i/322900.jpg" },
-            { title: "Critqueof the Gotha Programmer", category: "Marx Articles", link: "#", cover: "https://pictures.abebooks.com/isbn/9781434463098-us.jpg" },
-            { title: "Economic and Philosophical Mauscripts", category: "Marx Articles", link: "#", cover: "https://imgv2-2-f.scribdassets.com/img/word_document/271647013/original/99fe92454c/1589742233?v=1" },
-            { title: "Correspondence", category: "Marx Articles", link: "#", cover: "https://i.etsystatic.com/23302366/r/il/7ebd88/2400628404/il_fullxfull.2400628404_9cpk.jpg" },
-            { title: "Writings on the North American Civil War", category: "Marx Articles", link: "#", cover: "https://www4.alibris-static.com/on-the-north-american-civil-war-writings-of-marx-engels/isbn/9781515315940_l.jpg" },
-            { title: "Grundrisse", category: "Marx Articles", link: "#", cover: "https://m.media-amazon.com/images/I/71fp7pV-ZvL._SL1143_.jpg" },
-            { title: "James MIll", category: "Marx Articles", link: "#", cover: "https://archive.org/services/img/jamesmilloneduca0000mill/full/pct:200/0/default.jpg" },
-            { title: "The End of German Classical Philosop", category: "Marx Articles", link: "#", cover: "https://www.marxists.org/archive/marx/works/1886/ludwig-feuerbach/index.gif" },
-            { title: "Mathematical Manuscripts 1881", category: "Marx Articles", link: "#", cover: "https://imgv2-1-f.scribdassets.com/img/document/394941191/original/6b5676e0ee/1568117939?v=1" },
-            { title: "On Freedom of the Press", category: "Marx Articles", link: "#", cover: "https://m.media-amazon.com/images/I/41DM6V5UQaL._SY445_SX342_.jpg" },
-            { title: "On the Histsory of Early Christianity", category: "Marx Articles", link: "#", cover: "https://img.perlego.com/book-covers/4312154/9791222484976_300_450.webp" },
-            { title: "Poverty of Philosophy", category: "Marx Articles", link: "#", cover: "http://ecx.images-amazon.com/images/I/51VQ7t5GaFL._SY291_BO1,204,203,200_QL40_.jpg" },
-            { title: "Rheinishe Zeitung", category: "Marx Articles", link: "#", cover: "https://archive.org/services/img/marx-karl-engels-friedrich.-articles-from-the-neue-rheinische-zeitung-1848-49/full/pct:200/0/default.jpg" },
-            { title: "The Civil War in France", category: "Marx Articles", link: "#", cover: "https://m.media-amazon.com/images/I/516krm4jhfL.jpg" },
-            { title: "The Class Struggle in France", category: "Marx Articles", link: "#", cover: "https://wellred-books.com/wp-content/uploads/2021/10/Class-Struggles-in-France.jpg" },
-            { title: "The First International", category: "Marx Articles", link: "#", cover: "https://pictures.abebooks.com/isbn/9781844676064-us.jpg" },
-            { title: "The German Ideology", category: "Marx Articles", link: "#", cover: "https://cdn2.penguin.com.au/covers/original/9781913462956.jpg" },
-            { title: "The Hague Congress", category: "Marx Articles", link: "#", cover: "https://m.media-amazon.com/images/I/41ft9MBovYL.jpg" },
-            { title: "The Holy Family", category: "Marx Articles", link: "#", cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1349062801i/511326.jpg" },
-            { title: "The Housing Question", category: "Marx Articles", link: "#", cover: "https://tse2.mm.bing.net/th?id=OIP.GjbWBq_KaKxsJ9336HfzmwHaLc&pid=Api&P=0&h=220" },
-            { title: "Marx vs Bretano", category: "Marx Articles", link: "#", cover: "https://store.marxist.ca/cdn/shop/files/hDng9X3j.jpg?v=1733503703&width=1646" },
-            { title: "Wage Labour and Capital", category: "Marx Articles", link: "#", cover: "https://pictures.abebooks.com/inventory/31336776741.jpg" },
-            { title: "Young Marx", category: "Marx Articles", link: "#", cover: "https://pictures.abebooks.com/inventory/9600595833.jpg" },
+        {
+            title: "Critique of Hegels Philosophy of Right", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1347675058i/322900.jpg" 
+        },
+        {
+            title: "Critqueof the Gotha Programmer", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://pictures.abebooks.com/isbn/9781434463098-us.jpg" 
+        },
+        {
+            title: "Economic and Philosophical Mauscripts", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://imgv2-2-f.scribdassets.com/img/word_document/271647013/original/99fe92454c/1589742233?v=1" 
+        },
+        {
+            title: "Correspondence", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://i.etsystatic.com/23302366/r/il/7ebd88/2400628404/il_fullxfull.2400628404_9cpk.jpg" 
+        },
+        {
+            title: "Writings on the North American Civil War", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://www4.alibris-static.com/on-the-north-american-civil-war-writings-of-marx-engels/isbn/9781515315940_l.jpg" 
+        },
+        {
+            title: "Grundrisse", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/71fp7pV-ZvL._SL1143_.jpg" 
+        },
+        {
+            title: "James MIll", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://archive.org/services/img/jamesmilloneduca0000mill/full/pct:200/0/default.jpg" 
+        },
+        {
+            title: "The End of German Classical Philosop", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://www.marxists.org/archive/marx/works/1886/ludwig-feuerbach/index.gif" 
+        },
+        {
+            title: "Mathematical Manuscripts 1881", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://imgv2-1-f.scribdassets.com/img/document/394941191/original/6b5676e0ee/1568117939?v=1" 
+        },
+        {
+            title: "On Freedom of the Press", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/41DM6V5UQaL._SY445_SX342_.jpg" 
+        },
+        {
+            title: "On the Histsory of Early Christianity",
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://img.perlego.com/book-covers/4312154/9791222484976_300_450.webp" 
+        },
+        {
+            title: "Poverty of Philosophy", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "http://ecx.images-amazon.com/images/I/51VQ7t5GaFL._SY291_BO1,204,203,200_QL40_.jpg" 
+        },
+        {
+            title: "Rheinishe Zeitung", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://archive.org/services/img/marx-karl-engels-friedrich.-articles-from-the-neue-rheinische-zeitung-1848-49/full/pct:200/0/default.jpg" 
+        },
+        {
+            title: "The Civil War in France", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/516krm4jhfL.jpg" 
+        },
+        {
+            title: "The Class Struggle in France", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://wellred-books.com/wp-content/uploads/2021/10/Class-Struggles-in-France.jpg" 
+        },
+        {
+            title: "The First International", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://pictures.abebooks.com/isbn/9781844676064-us.jpg" 
+        },
+        {
+            title: "The German Ideology", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://cdn2.penguin.com.au/covers/original/9781913462956.jpg" 
+        },
+        {
+            title: "The Hague Congress", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://m.media-amazon.com/images/I/41ft9MBovYL.jpg" 
+        },
+        {
+            title: "The Holy Family", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1349062801i/511326.jpg" 
+        },
+        {
+            title: "The Housing Question", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://tse2.mm.bing.net/th?id=OIP.GjbWBq_KaKxsJ9336HfzmwHaLc&pid=Api&P=0&h=220" 
+        },
+        {
+            title: "Marx vs Bretano", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://store.marxist.ca/cdn/shop/files/hDng9X3j.jpg?v=1733503703&width=1646" 
+        },
+        {
+            title: "Wage Labour and Capital", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://pictures.abebooks.com/inventory/31336776741.jpg" 
+        },
+        {
+            title: "Young Marx", 
+            category: "Marx Articles", 
+            link: "#", 
+            cover: "https://pictures.abebooks.com/inventory/9600595833.jpg" 
+        },
         // e-book lain
         { 
             title: "15 Bentuk Kekerasan Seksual", 
@@ -422,7 +892,7 @@
             title: "Filsafat Perempuan dalam Islam", 
             category: "E-Book Lain", 
             link: "#", 
-            cover: "https://www.jaritelunjuk.com/blog/wp-content/uploads/2021/11/Resensi-Buku-Filsafat-Perempuan-dalam-Islam-1.jpeg" 
+            cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1544408485i/43186400.jpg" 
         },
         {
             title: "Menemukan Kembali Liberalisme", 
@@ -536,7 +1006,7 @@
             title: "Materialisme dan Empiriokritisme", 
             category: "E-Book Lain", 
             link: "#", 
-            cover: "https://tse4.mm.bing.net/th?id=OIP.Pezy1F6lgO0KVmPpLYHjHgHaKd&pid=Api&P=0&h=220" },
+            cover: "https://3.bp.blogspot.com/-BHl38iIyLaI/WsgwefKc5MI/AAAAAAAAAdg/FhCTsxuXTEkrP1Cqey3FNQ9KyzmXrOiQgCLcBGAs/s400/materialisme.jpg" },
         ];
 
         const categories = ["Engels", "Marx Articles", "E-Books Club", "E-Book Lain"];
@@ -692,6 +1162,23 @@
     };
     </script>
 
+    <script>
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            button.setAttribute("aria-expanded", button.getAttribute("aria-expanded") === "false" ? "true" : "false");
+            content.style.maxHeight = button.getAttribute("aria-expanded") === "true" ? content.scrollHeight + "px" : "0";
+        }
+    </script>
+
+    <script>
+    let z = 10;
+    function bringToFront(el) {
+        z++;
+        el.style.zIndex = z;
+    }
+    </script>
+
+    <!-- library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
     AOS.init();
